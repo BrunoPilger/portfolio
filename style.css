@@ -144,6 +144,7 @@ header {
 
 .banner button {
   font-family: var(--font-action);
+  font-size: .9rem;
   color: black;
   text-transform: uppercase;
   letter-spacing: .1rem;
@@ -323,4 +324,93 @@ header {
   object-fit: cover;
   width: 100%;
 }
+
+.projetos {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 18rem;
+  height: 25rem;
+  position: relative;
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+  background-color: #4b4b4b;
+}
+
+.card-img-wrapper img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: .5rem;
+  opacity: .8;
+  transition: opacity .3s;
+}
+
+.card:hover .card-img-wrapper img{
+  opacity: .5;
+}
+
+.cards-info {
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  padding: 2rem;
+  text-shadow: 0.3rem 0.2rem 0.3rem rgba(0, 0, 0, .4);
+  transition: all .3s;
+}
+
+.cards-info h2 {
+  font-family: var(--font-primary);
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+}
+
+.cards-info h3 {
+  font-family: var(--font-action);
+  font-weight: bolder;
+  color: #22dafa;
+  margin-bottom: 1.5rem;
+}
+
+.cards-info p {
+  font-family: var(--font-secundary);
+  color: white;
+  font-weight: 400;
+  width: 80%;
+  margin-bottom: 2rem;
+}
+
+.cards-info button {
+  width: 8rem;
+  height: 2.5rem;
+  background: #9CECFB;  
+  background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  
+  background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
+  font-family: var(--font-action);
+  font-size: .9rem;
+  color: white;
+  border-radius: .5rem;
+  border: none;
+  box-shadow: 0 .1rem .8rem rgba(0, 0, 0, .4);
+}
+
+.cards-info button:hover {
+  color: black;
+}
+
+.card:hover .cards-info {
+  bottom: 2rem;
+  opacity: 1;
+  visibility: visible;
+}
+
+
 
