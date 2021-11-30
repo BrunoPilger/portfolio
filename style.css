@@ -235,7 +235,7 @@ header {
 }
 
 .social-media i:hover {
-  font-size: 2.1rem;
+  opacity: .7;
 }
 
 .conhecimentos {
@@ -388,9 +388,7 @@ header {
   margin-bottom: 2rem;
 }
 
-.cards-info button {
-  width: 8rem;
-  height: 2.5rem;
+.btn {
   background: #9CECFB;  
   background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);  
   background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
@@ -402,6 +400,11 @@ header {
   box-shadow: 0 .1rem .8rem rgba(0, 0, 0, .4);
 }
 
+.cards-info button {
+  width: 8rem;
+  height: 2.5rem;
+}
+
 .cards-info button:hover {
   color: black;
 }
@@ -410,6 +413,107 @@ header {
   bottom: 2rem;
   opacity: 1;
   visibility: visible;
+}
+
+.sessao-contato {
+  margin-top: 4rem;
+  width: 100%;
+  height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contato-wrapper {
+  width: 70%;
+  height: 30rem;
+  display: flex;
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, .8);
+}
+
+.contato-left {
+  width: 35%;
+  background-image: 
+    linear-gradient(rgba(5,5,5,0.1), rgba(22,22,22,0.8)),
+    url(imagens/Contato.jpg);
+  background-size: cover;
+}
+
+.contato-right {
+  width: 65%;
+  background-color: whitesmoke;
+  padding: 1rem 3rem 3rem 3rem;
+}
+
+.sessao-contato h1 {
+  width: 100%;
+  align-items:center;
+  font-family: var(--font-primary);
+  color: #4b4b4b;
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+.sessao-contato form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group {
+  position: relative;
+}
+
+.field {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 25rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-family: var(--font-secundary);
+  border-bottom: 2px dashed #4b4b4b;
+  margin: 1rem 0;
+}
+
+.input-group textarea {
+  padding-top: 1rem;
+  max-width: 25rem;
+  max-height: 5rem;
+}
+
+.field-label {
+  position: absolute;
+  left: 0;
+  top:2rem;
+  font-size: 1.2rem;
+  font-family: var(--font-secundary);
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.field:focus ~ label {
+  top: 0;
+  font-size: 1rem;
+}
+
+.field:focus {
+  border-bottom: 1px solid;
+}
+
+.btn-submit {
+  font-family: var(--font-action);
+  font-size: 1rem;
+  text-transform: uppercase;
+  width: 75%;
+  height: 2rem;
+  margin-top: 1rem;
+}
+
+.btn-submit:hover {
+  color: black;
 }
 
 
