@@ -10,6 +10,10 @@
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --font-primary: "Baloo Da 2", serif;
   --font-secundary: "Josefin Slab", serif;
@@ -530,7 +534,7 @@ header {
 .orcamento-wrapper {
   width: 65%;
   height: 80%;
-  background-color: #8d8b8b80;
+  background-color: #ccccccc0;
   box-shadow: 0 .5rem 2.5rem rgba(0, 0, 0, 1);
   border-radius: .5rem;
   position: relative;
@@ -586,6 +590,57 @@ header {
 .btn-orcamento:hover {
   color: black;
 }
+
+footer {
+  width: 100%;
+  height: 7rem;
+  background: #3a3b3b;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-content p {
+  font-family: var(--font-secundary);
+  color: rgb(224, 222, 222);
+  font-size: 1.1rem;
+  font-weight:lighter;
+}
+
+.social-list a {
+  margin: 0 2rem;
+  color: rgb(224, 222, 222);
+  font-size: 1.3rem;
+}
+
+.social-list ul {
+  display: flex;
+}
+
+#link-topo {
+  background: #9CECFB;  
+  background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #8bd9e7);  
+  background: linear-gradient(to right, #0052D4, #65C7F7, #8bd9e7);
+  color: white;
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: .3rem;
+  box-shadow: 0 .1rem .8rem rgba(0, 0, 0, .4);
+}
+
+
 
 
 
