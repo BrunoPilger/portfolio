@@ -1,0 +1,27 @@
+.sobre {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 6rem 6vw;
+}
+
+.sobre__comment {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-family-mono);
+  color: var(--color-code-comment);
+  font-size: 0.95rem;
+}
+
+.sobre__title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+}
+
+.sobre__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}

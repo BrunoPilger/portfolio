@@ -1,0 +1,67 @@
+<section class="hero" id="inicio">
+  <div class="hero__glow" aria-hidden="true"></div>
+
+  <div class="hero__content">
+    <p class="hero__comment">// Olá, eu sou</p>
+    <h1 class="hero__name">Bruno Pilger</h1>
+    <p class="hero__description">
+      Desenvolvedor de Software com experiência em Angular, TypeScript e
+      desenvolvimento de aplicações web. Minha trajetória começou no suporte
+      técnico e evoluiu para o desenvolvimento, onde encontrei a área em que
+      desejo construir minha carreira.
+    </p>
+  </div>
+
+  <div class="hero__visual">
+    <div class="hero__stage">
+      <div class="hero__code-panels" aria-hidden="true">
+        <pre class="hero__code-panel hero__code-panel--one"><code><span class="tok-kw">import</span> &#123; Component, signal &#125; <span class="tok-kw">from</span> <span class="tok-str">'@angular/core'</span>;
+<span class="tok-kw">import</span> &#123; RouterOutlet &#125; <span class="tok-kw">from</span> <span class="tok-str">'@angular/router'</span>;
+
+<span class="tok-ann">@Component</span>(&#123;
+  selector: <span class="tok-str">'app-hero'</span>,
+  standalone: <span class="tok-kw">true</span>,
+  imports: [RouterOutlet],
+&#125;)
+<span class="tok-kw">export class</span> <span class="tok-fn">Hero</span> &#123;
+  <span class="tok-kw">protected</span> role = <span class="tok-fn">signal</span>(<span class="tok-str">'Dev Jr'</span>);
+
+  <span class="tok-fn">constructor</span>() &#123;
+    console.<span class="tok-fn">log</span>(<span class="tok-str">'ready'</span>);
+  &#125;
+&#125;</code></pre>
+
+        <pre class="hero__code-panel hero__code-panel--two"><code><span class="tok-kw">interface</span> <span class="tok-fn">Skill</span> &#123;
+  name: <span class="tok-fn">string</span>;
+  level: <span class="tok-fn">number</span>;
+&#125;
+
+<span class="tok-kw">const</span> skills: <span class="tok-fn">Skill</span>[] = [
+  &#123; name: <span class="tok-str">'Angular'</span>, level: <span class="tok-num">8</span> &#125;,
+  &#123; name: <span class="tok-str">'TypeScript'</span>, level: <span class="tok-num">7</span> &#125;,
+  &#123; name: <span class="tok-str">'C#'</span>, level: <span class="tok-num">6</span> &#125;,
+];
+
+<span class="tok-kw">function</span> <span class="tok-fn">sortByLevel</span>(list: <span class="tok-fn">Skill</span>[]) &#123;
+  <span class="tok-kw">return</span> [...list].sort(
+    (a, b) =&gt; b.level - a.level
+  );
+&#125;</code></pre>
+      </div>
+
+      <div class="hero__figure">
+        <div class="hero__frame hero__frame--fill" aria-hidden="true"></div>
+        <div class="hero__frame hero__frame--outline" aria-hidden="true"></div>
+        <img
+          class="hero__photo"
+          ngSrc="/images/bruno-recorte.png"
+          width="1022"
+          height="1465"
+          priority
+          alt="Foto de Bruno Pilger"
+        />
+        <span class="hero__plus" aria-hidden="true">+</span>
+      </div>
+    </div>
+  </div>
+</section>

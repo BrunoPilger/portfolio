@@ -1,0 +1,20 @@
+<section class="experiencia" id="experiencia">
+  <p class="experiencia__comment">// experiência</p>
+  <h2 class="experiencia__title">Experiência profissional</h2>
+
+  <ol class="experiencia__timeline">
+    @for (job of jobs; track job.company) {
+      <li class="experiencia__item">
+        <span class="experiencia__dot" aria-hidden="true"></span>
+        <div class="experiencia__content">
+          <span class="experiencia__period">{{ job.period }}</span>
+          <h3 class="experiencia__company">{{ job.company }}</h3>
+          <span class="experiencia__role">{{ job.role }}</span>
+          @for (paragraph of job.description; track paragraph) {
+            <p class="experiencia__description">{{ paragraph }}</p>
+          }
+        </div>
+      </li>
+    }
+  </ol>
+</section>

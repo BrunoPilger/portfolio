@@ -1,0 +1,75 @@
+.projetos {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 4rem 6vw 6rem;
+}
+
+.projetos__comment {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-family-mono);
+  color: var(--color-code-comment);
+  font-size: 0.95rem;
+}
+
+.projetos__title {
+  margin: 0 0 2rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+}
+
+.projetos__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 4rem 2rem;
+  border: 1px dashed rgb(255 255 255 / 15%);
+  border-radius: 1rem;
+  color: var(--color-text-muted);
+}
+
+.projetos__spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-width: 3px;
+}
+
+.projetos__loading {
+  margin: 0;
+  font-family: var(--font-family-mono);
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.projetos__hint {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@keyframes dot-blink {
+  0%, 80%, 100% {
+    opacity: 0.2;
+  }
+
+  40% {
+    opacity: 1;
+  }
+}
+
+.projetos__dots span {
+  display: inline-block;
+  animation: dot-blink 1.4s ease-in-out infinite;
+
+  &:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  &:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+}

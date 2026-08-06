@@ -1,0 +1,85 @@
+<section class="contato" id="contato">
+  <p class="contato__comment">// contato</p>
+  <h2 class="contato__title">Vamos conversar?</h2>
+  <p class="contato__lead">
+    Estou sempre aberto a conversar sobre desenvolvimento, tecnologia e novas
+    oportunidades profissionais. Se você acredita que posso contribuir com
+    seu time ou projeto, será um prazer entrar em contato.
+  </p>
+
+  <div class="contato__grid">
+    <div class="contato__card">
+      <div class="contato__card-header">
+        <span class="contato__card-label">Email</span>
+
+        <button
+          class="contato__copy"
+          [class.contato__copy--copied]="copiedField() === 'email'"
+          type="button"
+          (click)="copy('brunopilger@gmail.com', 'email')"
+          [attr.aria-label]="copiedField() === 'email' ? 'Email copiado' : 'Copiar email'"
+        >
+          @if (copiedField() === 'email') {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          } @else {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="11" height="11" rx="2" />
+              <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+            </svg>
+          }
+        </button>
+      </div>
+
+      <a class="contato__card-value" href="mailto:brunopilger@gmail.com">brunopilger&#64;gmail.com</a>
+    </div>
+
+    <div class="contato__card">
+      <div class="contato__card-header">
+        <span class="contato__card-label">WhatsApp</span>
+
+        <button
+          class="contato__copy"
+          [class.contato__copy--copied]="copiedField() === 'whatsapp'"
+          type="button"
+          (click)="copy('+55 51 98975-3949', 'whatsapp')"
+          [attr.aria-label]="copiedField() === 'whatsapp' ? 'Número copiado' : 'Copiar número'"
+        >
+          @if (copiedField() === 'whatsapp') {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 6 9 17l-5-5" />
+            </svg>
+          } @else {
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="11" height="11" rx="2" />
+              <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" />
+            </svg>
+          }
+        </button>
+      </div>
+
+      <a class="contato__card-value" href="https://wa.me/5551989753949" target="_blank" rel="noopener">(51) 98975-3949</a>
+    </div>
+
+    <div class="contato__card">
+      <div class="contato__card-header">
+        <span class="contato__card-label">Currículo</span>
+
+        <a
+          class="contato__copy"
+          href="/cv-bruno-pilger.pdf"
+          download="Currículo - Bruno Pilger.pdf"
+          aria-label="Baixar currículo em PDF"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v12m0 0-4-4m4 4 4-4" />
+            <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+          </svg>
+        </a>
+      </div>
+
+      <a class="contato__card-value" href="/cv-bruno-pilger.pdf" download="Currículo - Bruno Pilger.pdf">Currículo - Bruno Pilger.pdf</a>
+    </div>
+  </div>
+</section>
