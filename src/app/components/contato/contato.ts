@@ -20,6 +20,7 @@ export class Contato {
 
     this.copiedField.set(field);
     setTimeout(() => {
+      // Evita que um timeout antigo apague o "copiado" de um clique mais recente.
       if (this.copiedField() === field) {
         this.copiedField.set(null);
       }
@@ -35,8 +36,8 @@ export class Contato {
     }
   }
 
-  // Fallback for browsers/contexts that block the async Clipboard API
-  // (older Safari, denied permissions, non-secure contexts).
+  // Fallback pra quando a Clipboard API não funciona (Safari antigo,
+  // permissão negada, etc).
   private legacyCopy(value: string): boolean {
     const textarea = document.createElement('textarea');
     textarea.value = value;

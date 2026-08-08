@@ -1,7 +1,7 @@
 .contato {
   max-width: 50rem;
   margin: 0 auto;
-  padding: 4rem 6vw 8rem;
+  padding: 4rem clamp(1.5rem, 6vw, 4rem) 8rem;
 }
 
 .contato__comment {

@@ -17,6 +17,9 @@ interface SocialLink {
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    '(window:scroll)': 'onWindowScroll()',
+  },
 })
 export class Navbar {
   protected readonly links: NavLink[] = [
@@ -32,6 +35,47 @@ export class Navbar {
   ];
 
   protected readonly isMenuOpen = signal(false);
+  protected readonly isHidden = signal(false);
+
+  private lastScrollY = 0;
+
+  // Mantém visível durante o scroll do clique; só libera quando o scroll
+  // parar de fato, não depois de um tempo fixo.
+  private isNavigating = false;
+  private settleTimer: ReturnType<typeof setTimeout> | null = null;
+
+  private startNavScroll(): void {
+    this.isNavigating = true;
+    this.isHidden.set(false);
+    this.armSettleTimer();
+  }
+
+  private armSettleTimer(): void {
+    if (this.settleTimer !== null) {
+      clearTimeout(this.settleTimer);
+    }
+    this.settleTimer = setTimeout(() => {
+      this.isNavigating = false;
+      this.lastScrollY = window.scrollY;
+    }, 150);
+  }
+
+  // Esconde ao rolar pra baixo, mostra ao rolar pra cima. Ignora perto do
+  // topo pra não sumir assim que a página carrega.
+  protected onWindowScroll(): void {
+    const currentY = window.scrollY;
+
+    if (this.isNavigating) {
+      this.isHidden.set(false);
+      this.armSettleTimer();
+    } else if (this.isMenuOpen() || currentY < 120) {
+      this.isHidden.set(false);
+    } else {
+      this.isHidden.set(currentY > this.lastScrollY);
+    }
+
+    this.lastScrollY = currentY;
+  }
 
   protected toggleMenu(): void {
     this.isMenuOpen.update((open) => !open);
@@ -45,12 +89,8 @@ export class Navbar {
 
   private lockedScrollY = 0;
 
-  // Locks page scroll while the drawer is open. `overflow: hidden` alone
-  // doesn't reliably block scrolling on iOS Safari, so the body is pinned in
-  // place with `position: fixed` and restored to its exact scroll position
-  // on close — otherwise scrolling the page behind the drawer triggers the
-  // mobile browser's address bar to hide, desyncing the fixed drawer height
-  // mid-gesture.
+  // `overflow: hidden` sozinho não trava o scroll no Safari iOS; por isso
+  // fixo o body e restauro a posição exata ao fechar o menu.
   private syncBodyScroll(): void {
     const body = document.body.style;
 
@@ -72,6 +112,7 @@ export class Navbar {
   protected onHomeClick(event: MouseEvent): void {
     event.preventDefault();
     this.closeMenu();
+    this.startNavScroll();
     document.querySelector('#inicio')?.scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -81,6 +122,7 @@ export class Navbar {
       return;
     }
     event.preventDefault();
+    this.startNavScroll();
     document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
   }
 }

@@ -1,7 +1,7 @@
 .sobre {
   max-width: 46rem;
   margin: 0 auto;
-  padding: 6rem 6vw;
+  padding: 6rem clamp(1.5rem, 6vw, 4rem);
 }
 
 .sobre__comment {

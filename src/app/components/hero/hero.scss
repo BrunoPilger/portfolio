@@ -1,36 +1,47 @@
 .hero {
-  // Scales the whole photo/code-panels composition smoothly between mobile
-  // and desktop, instead of jumping between fixed sizes at breakpoints.
+  // Escala foto + cards de código juntos, suave entre mobile e desktop.
   --hero-scale: clamp(0.46, calc(0.46 + (100vw - 20rem) / 44rem * 0.54), 1);
 
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 4rem 6vw;
+  padding: 4rem clamp(1.5rem, 6vw, 4rem);
   overflow: hidden;
 }
 
-.hero__glow {
-  position: absolute;
-  top: -12rem;
-  left: -8rem;
-  width: 34rem;
-  height: 34rem;
-  background: radial-gradient(circle, rgb(123 118 184 / 28%), transparent 70%);
-  filter: blur(30px);
-  z-index: 0;
-  pointer-events: none;
+// Separado da `.hero` pra não cortar o brilho no overflow: hidden.
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+  max-width: 74rem;
+  margin: 0 auto;
 }
-
-// Text block
 
 .hero__content {
   position: relative;
   z-index: 1;
   max-width: 28rem;
+}
+
+// Centralizado no início do "//" do comentário, tipo holofote no nome.
+// z-index negativo pra ficar atrás do texto.
+.hero__glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40rem;
+  height: 40rem;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgb(123 118 184 / 28%), transparent 70%);
+  filter: blur(30px);
+  z-index: -1;
+  pointer-events: none;
 }
 
 .hero__comment {
@@ -54,12 +65,7 @@
   line-height: 1.65;
 }
 
-// Visual stage: code panels + photo figure, scaled as one unit via
-// --hero-scale. `.hero__visual` is the layout box (its size is what the flex
-// layout actually reserves, so `.hero__content` gets more room as it
-// shrinks); `.hero__stage` keeps the original 38rem × 28rem coordinate
-// system that every child below is positioned against, just visually scaled.
-
+// Coordenadas fixas em 38rem × 37rem; só a aparência escala via --hero-scale.
 .hero__visual {
   position: relative;
   flex-shrink: 0;
@@ -153,9 +159,7 @@
   color: rgb(255 255 255 / 70%);
 }
 
-// Two rotated frames behind the photo — one solid, one outline — so the
-// photo reads as if it's stepping out from between them.
-
+// Dois quadros atrás da foto, pra parecer que ela sai de entre eles.
 .hero__frame {
   position: absolute;
   border-radius: 1.25rem;
@@ -176,13 +180,21 @@
 
 @media (max-width: 48rem) {
   .hero {
+    padding: 7rem 6vw 2rem;
+  }
+
+  .hero__inner {
     flex-direction: column-reverse;
     justify-content: center;
     text-align: center;
-    padding: 7rem 6vw 2rem;
   }
 
   .hero__content {
     max-width: none;
+  }
+
+  // Texto centralizado aqui, então centralizo o brilho também.
+  .hero__glow {
+    left: 50%;
   }
 }
