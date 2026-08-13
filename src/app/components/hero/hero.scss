@@ -38,7 +38,7 @@
   width: 40rem;
   height: 40rem;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgb(123 118 184 / 28%), transparent 70%);
+  background: radial-gradient(circle, rgb(83 147 131 / 28%), transparent 70%);
   filter: blur(30px);
   z-index: -1;
   pointer-events: none;
@@ -128,7 +128,7 @@
 .tok-str { color: #7fb87f; }
 .tok-fn { color: #c9a86a; }
 .tok-num { color: #c9a86a; }
-.tok-ann { color: #7b76b8; }
+.tok-ann { color: #539383; }
 
 .hero__figure {
   position: absolute;
